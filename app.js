@@ -17,7 +17,9 @@ const logStyle = process.env.LOG_STYLE || 'dev';
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.get('/_hc')
+app.get('/hc', function(req, res, next) {
+    res.send('OK');
+});
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger(logStyle));
